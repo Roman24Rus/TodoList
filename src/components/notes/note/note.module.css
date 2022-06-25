@@ -1,0 +1,45 @@
+.note {
+    background-color: rgba(145, 189, 219, 0.8);
+    width: 100%;
+    min-height: 28px;
+    margin-bottom: 5px;
+    display: flex;
+}
+.noteButton {
+    position: relative;
+    align-self: center;
+    background-color: transparent;
+    border: none;
+    font-size: 0;
+}
+
+.noteButton::before {
+    position: absolute;
+    top: -9px;
+    left: 13px;
+    content: "";
+    height: 17px;
+    border: 1px solid rgba(0, 0, 0, 0.658);
+    transform: rotate(45deg);
+    background-color: rgba(0, 0, 0, 0.651);
+}
+
+.noteButton::after {
+    position: absolute;
+    top: -9px;
+    left: 13px;
+    content: "";
+    height: 17px;
+    border: 1px solid rgba(0, 0, 0, 0.644);
+    transform: rotate(-45deg);
+    background-color: rgba(0, 0, 0, 0.658);
+}
+.noteText {
+    align-self: center;
+    width: 232px;
+    word-wrap: break-word;
+    padding: 5px 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 20px;
+}

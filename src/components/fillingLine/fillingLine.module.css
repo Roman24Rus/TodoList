@@ -1,0 +1,62 @@
+.blockNewItems {
+    width: 280px;
+    height: 80px;
+    border: 2px solid black;
+    margin: 10px auto;
+    padding: 25px 0;
+    box-sizing: border-box;
+}
+
+.blockNewItems span {
+    font-size: 17px;
+}
+
+.buttonNotes {
+    appearance: none;
+}
+
+.fillingLabel {
+    position: relative;
+    padding-right: 27px;
+    margin-left: 0;
+}
+
+.fillingLabel::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 35px;
+    width: 15px;
+    height: 15px;
+    border: 2px solid black;
+}
+
+.fillingLabel::after {
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: 38px;
+    width: 10px;
+    height: 5px;
+    transform: rotate(-45deg);
+    border: 2px solid black;
+    border-top: none;
+    border-right: none;
+    opacity: 0;
+}
+
+.buttonNotes:checked ~ .fillingLabel::after {
+    opacity: 1;
+}
+
+.fillingLine {
+    border: 2px solid black;
+    height: 22px;
+}
+
+.button {
+    font-size: 25px;
+    background-color: transparent;
+    border: none;
+    vertical-align: middle;
+}

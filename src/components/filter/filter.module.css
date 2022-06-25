@@ -1,0 +1,23 @@
+.buttonFilter {
+    margin-top: 10px;
+    padding: 0 24px;
+    display: flex;
+    
+}
+.buttonActive,
+.buttonClear,
+.buttonAll,
+.buttonCompledet {
+    background-color: transparent;
+}
+.buttonActive {
+    margin-left: 5px;
+}
+
+.buttonCompledet {
+    margin-left: 5px;
+}
+
+.buttonClear {
+    margin-left: 50px;
+}

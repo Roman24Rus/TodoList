@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Item from "./item/item";
 import Style from './tasks.module.css';
-
-let obj = [
-    { task: 'Привет как дела', isActive: true, id: 1 },
-    { task: 'Привет как дела', isActive: true, id: 2 },
-    { task: 'Привет как дела', isActive: true, id: 3 }
-]
+import { connect } from 'react-redux'
 
 
-const Tasks = () => {
 
-    const task = obj.map((e) => <Item isActive={e.isActive} task={e.task} />)
+
+const Tasks = (props) => {
+
+
+
+    const task = props.task.map((e) => <Item key={e.id} id={e.id} isActive={e.isActive} task={e.task} />)
 
     return (
         <div className={Style.tasks}>
@@ -23,4 +22,12 @@ const Tasks = () => {
     );
 }
 
-export default Tasks
+const mapStateToProps = (state) => {
+    return {
+       task: state.taskReducer.tasks
+    }
+}
+
+
+
+export default connect(mapStateToProps, {})(Tasks)

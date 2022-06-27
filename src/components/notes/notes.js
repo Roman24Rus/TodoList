@@ -1,21 +1,16 @@
 import React from "react";
 import Style from './notes.module.css'
 import Note from "./note/note";
-
-
-let obj = [
-    { note: 'Привет как дела', isActive: true, id: 1 },
-    { note: 'Привет как дела', isActive: true, id: 2 },
-    { note: 'Привет как дела', isActive: true, id: 3 }
-]
+import { connect } from 'react-redux'
 
 
 
 
-const Notes = () => {
+
+const Notes = (props) => {
 
 
-    const note = obj.map((e) => <Note isActive={e.isActive} note={e.note} />)
+    const note = props.note.map((e) => <Note key={e.id} id={e.id} isActive={e.isActive} note={e.note} />)
 
     return (
         <div className={Style.notes}>
@@ -25,4 +20,14 @@ const Notes = () => {
     )
 }
 
-export default Notes
+
+const mapStateToProps = (state) => {
+    return {
+       note: state.noteReducer.notes
+    }
+}
+
+
+
+export default connect(mapStateToProps, {})(Notes)
+

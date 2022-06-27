@@ -1,5 +1,5 @@
 .item {
-    background-color: rgba(110, 189, 241, 0.8);
+    background-color: rgb(110, 189, 241);
     width: 100%;
     min-height: 28px;
     margin-bottom: 5px;
@@ -81,4 +81,12 @@
     border: 1px solid rgba(0, 0, 0, 0.644);
     transform: rotate(-45deg);
     background-color: rgba(0, 0, 0, 0.658);
+}
+.itemCompleted {
+    background-color: rgba(74, 148, 197, 0.226);
+    width: 100%;
+    min-height: 28px;
+    margin-bottom: 5px;
+    display: flex;
+    text-decoration: line-through;
 }

@@ -1,5 +1,5 @@
 .blockNewItems {
-    width: 280px;
+    width: 310px;
     height: 80px;
     border: 2px solid black;
     margin: 10px auto;
@@ -16,6 +16,7 @@
 }
 
 .fillingLabel {
+    cursor: pointer;
     position: relative;
     padding-right: 27px;
     margin-left: 0;
@@ -53,8 +54,11 @@
     border: 2px solid black;
     height: 22px;
 }
-
+.fillingLine:focus {
+    outline:none;
+}
 .button {
+    cursor: pointer;
     font-size: 25px;
     background-color: transparent;
     border: none;

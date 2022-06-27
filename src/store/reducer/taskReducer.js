@@ -7,15 +7,15 @@ const TASK_ACTIVE_FILTER = 'TASK_ACTIVE_FILTER'
 const TASK_COMPLETED_FILTER = 'TASK_COMPLETED_FILTER'
 const TASK_IS_ACTIVE = 'TASK_IS_ACTIVE'
 const DELETE_TASKS ='DELETE_TASKS'
-
+const EDITING_TASK = 'EDITING_TASK'
 
 
 
 let initialState = {
     tasks:  [
-        { task: 'Задача 1', isActive: false, id: 1 },
-        { task: 'Задача 2', isActive: false, id: 2 },
-        { task: 'Задача 3', isActive: false, id: 3 }
+        { task: 'Задача 1', isActive: true, id: 1 },
+        { task: 'Задача 2', isActive: true, id: 2 },
+        { task: 'Задача 3', isActive: true, id: 3 }
     ]
 }
 
@@ -33,7 +33,7 @@ export const taskReducer = (state = initialState, action) => {
     }else if(action.type === TASK_ALL_FILTER) {
         return {
             ...state,
-            tasks: [ ...state.tasks ]
+            tasks: [...state.tasks ]
         }
     }else if(action.type === TASK_ACTIVE_FILTER) {
         return {
@@ -60,6 +60,16 @@ export const taskReducer = (state = initialState, action) => {
         return e
     })
         }
+    }else if(action.type === EDITING_TASK) {
+        return {
+            ...state,
+            tasks: state.tasks.map((e) => {
+                if(e.id === action.id) {
+                    return {...e, task: action.task}
+                }
+               return e 
+            })
+        }
     }
     return state
 }
@@ -71,14 +81,21 @@ const activeFilterAC = () => ({type: TASK_ACTIVE_FILTER})
 const completedFilterAC = () => ({type: TASK_COMPLETED_FILTER})
 const deleteAC = () => ({type: DELETE_TASKS})
 const activeAC = (id, isActive) => ({type: TASK_IS_ACTIVE, id, isActive})
+const editingAC = (task, id) => ({type: EDITING_TASK, task, id})
+
+
+
+export const editingTask = (task, id) => {
+    return (dispatch) => {
+        dispatch(editingAC(task, id))
+    }
+}
 
 export const isActiveTask = (id, isActive) => {
     return (dispatch) => {
         dispatch(activeAC(id, isActive))
     }
 }
-
-
 
 export const deleteTasks = () => {
     return (dispatch) => {

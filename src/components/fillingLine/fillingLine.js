@@ -19,6 +19,7 @@ const FillingLine = (props) => {
         } else {
             props.addTask(task)
         }
+        setTask('')
     }
 
 
@@ -27,7 +28,7 @@ const FillingLine = (props) => {
             <form onSubmit={submit}>
                 <input id="checbox-1" className={Style.buttonNotes} type='checkbox' checked={isChecked} onClick={() => setIsChecked(!isChecked)} />
                 <label className={Style.fillingLabel} for="checbox-1">Note</label>
-                <input onChange={(e) => addText(e.target.value)} className={Style.fillingLine} type='text' />
+                <input onChange={(e) => addText(e.target.value)} value={task} className={Style.fillingLine} type='text' />
                 <button className={Style.button} onClick={add}>+</button>
             </form>
         </div>

@@ -7,6 +7,7 @@
 }
 
 .itemLabel {
+    cursor: pointer;
     position: relative;
     align-self: center;
 }
@@ -44,8 +45,9 @@
 }
 
 .task {
+    position: relative;
     align-self: center;
-    width: 208px;
+    width: 230px;
     word-wrap: break-word;
     padding: 5px 0;
     margin-left: 28px;
@@ -54,16 +56,22 @@
 }
 
 .itemButton {
+    cursor: pointer;
     position: relative;
+    width: 30px;
+    height: 26px;
     align-self: center;
     background-color: transparent;
     border: none;
     font-size: 0;
 }
+.itemButton:focus {
+    border: none;
+}
 
 .itemButton::before {
     position: absolute;
-    top: -9px;
+    top: 2px;
     left: 13px;
     content: "";
     height: 17px;
@@ -74,7 +82,7 @@
 
 .itemButton::after {
     position: absolute;
-    top: -9px;
+    top: 2px;
     left: 13px;
     content: "";
     height: 17px;
@@ -89,4 +97,15 @@
     margin-bottom: 5px;
     display: flex;
     text-decoration: line-through;
+}
+.editing {
+    background-color: transparent;
+    position: relative;
+    margin-left: 27px;
+   
+    width: 232px;
+    height: 31px;
+    outline: none;
+    border: none;
+    font-size: 16.5px;
 }

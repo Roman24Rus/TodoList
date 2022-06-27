@@ -12,7 +12,7 @@ const Filter = (props) => {
     return(
         <div >
             <form onSubmit={(e) => filterForm(e)} className={Style.buttonFilter}>
-                <button onClick={props.allFilter} className={Style.buttonAll}>All</button>
+                <button onClick={props.allFilter} autoFocus className={Style.buttonAll}>All</button>
                 <button onClick={props.activeFilter} className={Style.buttonActive}>Active</button>
                 <button onClick={props.completedFilter} className={Style.buttonCompledet}>Compledet</button>
                 <button onClick={props.deleteTasks} className={Style.buttonClear}>Clear</button>

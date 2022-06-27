@@ -6,16 +6,22 @@
     display: flex;
 }
 .noteButton {
+    cursor: pointer;
     position: relative;
+    width: 30px;
+    height: 30px;
     align-self: center;
     background-color: transparent;
     border: none;
     font-size: 0;
 }
+.noteButton:focus {
+    border: none;
+}
 
 .noteButton::before {
     position: absolute;
-    top: -9px;
+    top: 4px;
     left: 13px;
     content: "";
     height: 17px;
@@ -26,7 +32,7 @@
 
 .noteButton::after {
     position: absolute;
-    top: -9px;
+    top: 4px;
     left: 13px;
     content: "";
     height: 17px;
@@ -36,7 +42,7 @@
 }
 .noteText {
     align-self: center;
-    width: 232px;
+    width: 255px;
     word-wrap: break-word;
     padding: 5px 0;
     margin-left: 5px;

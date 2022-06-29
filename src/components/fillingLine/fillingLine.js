@@ -1,47 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Style from './fillingLine.module.css'
-import { connect } from 'react-redux'
-import { addTask } from "../../store/reducer/taskReducer";
-import { addNote } from "../../store/reducer/noteReducer";
+
+
 
 
 const FillingLine = (props) => {
 
-    const [task, setTask] = useState('')
-    const [isChecked, setIsChecked] = useState(false)
+    const [type, setType] = useState(false)
+    const [text, setText] = useState('')
 
-    const addText = (e) => { setTask(e) }
-    const submit = (e) => { e.preventDefault() }
+    const handlSubmit = (e) => {
+        e.preventDefault()
+        if (!type) {
+            props.addTask(text)
 
-    const add = () => {
-        if (isChecked) {
-            props.addNote(task)
         } else {
-            props.addTask(task)
+            props.addNote(text)
         }
-        setTask('')
+        setText('')
     }
+
 
 
     return (
         <div className={Style.blockNewItems}>
-            <form onSubmit={submit}>
-                <input id="checbox-1" className={Style.buttonNotes} type='checkbox' checked={isChecked} onClick={() => setIsChecked(!isChecked)} />
-                <label className={Style.fillingLabel} for="checbox-1">Note</label>
-                <input onChange={(e) => addText(e.target.value)} value={task} className={Style.fillingLine} type='text' />
-                <button className={Style.button} onClick={add}>+</button>
+            <form onSubmit={handlSubmit}>
+                <input id="checbox-1" className={Style.buttonNotes} type='checkbox' />
+                <label onClick={() => setType(!type)} className={Style.fillingLabel} htmlFor="checbox-1">Note</label>
+                <input onChange={(e) => setText(e.target.value)} value={text} className={Style.fillingLine} type='text' />
+                <button className={Style.button}>+</button>
             </form>
         </div>
     );
 }
 
-const mapstateToProps = (state) => {
-    return {
-
-    }
-}
 
 
 
 
-export default connect(mapstateToProps, { addTask, addNote })(FillingLine)
+export default FillingLine

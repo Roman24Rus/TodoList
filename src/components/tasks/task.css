@@ -1,0 +1,56 @@
+.tasks {
+    width: 310px;
+    margin: 0 auto;
+    margin-top: 15px;
+    border-top: 2px solid black;  
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+.tasks h1 {
+    font-size: 22px;
+    margin: 0;
+    padding: 10px 0 ;
+}
+.buttonFilter {
+    margin-top: 10px;
+    display: flex;
+
+}
+
+
+.button_all #all {
+    
+    border: 2px solid rgba(0, 0, 0, 0.473);
+    color: rgba(0, 0, 0, 0.493);
+    outline: none;
+}
+.button_active #active {
+    border: 2px solid rgba(0, 0, 0, 0.473);
+    color: rgba(0, 0, 0, 0.493);
+    outline: none;
+}
+.button_completed #completed {
+    border: 2px solid rgba(0, 0, 0, 0.473);
+    color: rgba(0, 0, 0, 0.493);
+    outline: none;
+}
+
+.buttonActive,
+.buttonClear,
+.buttonAll,
+.buttonCompledet {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.buttonActive {
+    margin-left: 5px;
+}
+
+.buttonCompledet {
+    margin-left: 5px;
+}
+
+.buttonClear {
+    margin-left: 79px;
+}

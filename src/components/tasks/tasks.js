@@ -1,33 +1,38 @@
-import React, { useEffect } from "react";
-import Item from "./item/item";
-import Style from './tasks.module.css';
-import { connect } from 'react-redux'
-
-
+import React from "react";
+import './task.css';
+import Item from './item/item'
 
 
 const Tasks = (props) => {
 
+    const filterForm = (e) => { 
+        e.preventDefault()
 
+     }
 
-    const task = props.task.map((e) => <Item key={e.id} id={e.id} isActive={e.isActive} task={e.task} />)
+    const item = props.tasks.map((item) => <Item key={item.id} isActive={props.isActive} isActiveId={item.isActive} text={item.task} id={item.id}  delTask={props.delTask}/>)
+   
 
     return (
-        <div className={Style.tasks}>
+        <div className='tasks'>
             <h1>Tasks</h1>
-            <div className={Style.items}>
-                {task}
+            <div className='items'>
+               { (item.length) ? item : <h2>No Tasks</h2>}
+                <div >
+                    <form onSubmit={(e) => filterForm(e)} className={`buttonFilter button_${props.filter}`}>
+                        <button onClick={(e) => props.setFilter(e.target.id)} id='all' className='buttonAll'>All</button>
+                        <button onClick={(e) => props.setFilter(e.target.id)} id='active' className='buttonActive'>Active</button>
+                        <button onClick={(e) => props.setFilter(e.target.id)} id='completed' className='buttonCompledet'>Compledet</button>
+                        <button onClick={props.delTasks} className='buttonClear'>Clear</button>
+                    </form>
+                </div>
             </div>
         </div>
     );
 }
 
-const mapStateToProps = (state) => {
-    return {
-       task: state.taskReducer.tasks
-    }
-}
 
 
 
-export default connect(mapStateToProps, {})(Tasks)
+
+export default Tasks

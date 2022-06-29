@@ -1,7 +1,7 @@
 import React from "react";
 import Style from './notes.module.css'
 import Note from "./note/note";
-import { connect } from 'react-redux'
+
 
 
 
@@ -9,25 +9,19 @@ import { connect } from 'react-redux'
 
 const Notes = (props) => {
 
-
-    const note = props.note.map((e) => <Note key={e.id} id={e.id} isActive={e.isActive} note={e.note} />)
+    const item = props.notes.map((item) => <Note key={item.id} id={item.id} text={item.note} delNote={props.delNote}/>)
+   
 
     return (
         <div className={Style.notes}>
             <h1>Notes</h1>
-            {note}
+            {(item.length) ? item : <h2>No notes</h2>}
         </div>
     )
 }
 
 
-const mapStateToProps = (state) => {
-    return {
-       note: state.noteReducer.notes
-    }
-}
 
 
-
-export default connect(mapStateToProps, {})(Notes)
+export default Notes
 

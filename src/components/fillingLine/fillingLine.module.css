@@ -7,10 +7,6 @@
     box-sizing: border-box;
 }
 
-.blockNewItems span {
-    font-size: 17px;
-}
-
 .buttonNotes {
     appearance: none;
 }
@@ -63,4 +59,5 @@
     background-color: transparent;
     border: none;
     vertical-align: middle;
+    outline: none;
 }

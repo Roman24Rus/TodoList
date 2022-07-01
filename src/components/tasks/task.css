@@ -1,3 +1,4 @@
+
 .tasks {
     width: 310px;
     margin: 0 auto;
@@ -14,7 +15,7 @@
 .buttonFilter {
     margin-top: 10px;
     display: flex;
-
+    justify-content:space-between;
 }
 
 
@@ -34,7 +35,9 @@
     color: rgba(0, 0, 0, 0.493);
     outline: none;
 }
-
+.groupFilter {
+    display: flex;
+}
 .buttonActive,
 .buttonClear,
 .buttonAll,
@@ -53,4 +56,16 @@
 
 .buttonClear {
     margin-left: 79px;
+}
+@media (min-width:500px) {
+    .tasks {
+        border: none;
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+@media (min-width: 900px) {
+    .tasks {
+        width: 48%;
+    }
 }

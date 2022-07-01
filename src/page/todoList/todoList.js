@@ -4,7 +4,7 @@ import FillingLine from '../../components/fillingLine/fillingLine'
 import Tasks from "../../components/tasks/tasks";
 import Notes from "../../components/notes/notes";
 import { connect } from 'react-redux'
-import { addNote, addTask, delTask, delNote, isActive, setFilter, delTasks} from "../../store/reducer/reducer";
+import { addNote, addTask, delTask, delNote, isActive, setFilter, delTasks, editor, editorNote} from "../../store/reducer/reducer";
 
 const getFilter = (filter) => {
     return filter;
@@ -38,8 +38,10 @@ const TodoList = (props) => {
     return(
         <div className={Style.page}>
             <FillingLine addTask={props.addTask} addNote={props.addNote}/>
-            <Tasks delTasks={props.delTasks} filter={props.filter} setFilter={props.setFilter} tasks={props.tasks} isActive={props.isActive} delTask={props.delTask}/>
-            <Notes notes={props.notes} delNote={props.delNote}/>
+            <div className={Style.desktop}>
+            <Tasks editor={props.editor} delTasks={props.delTasks} filter={props.filter} setFilter={props.setFilter} tasks={props.tasks} isActive={props.isActive} delTask={props.delTask}/>
+            <Notes editorNote={props.editorNote} notes={props.notes} delNote={props.delNote}/>
+            </div>
         </div>
     );
 }
@@ -53,4 +55,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {addNote, addTask, delTask, delNote, isActive, setFilter, delTasks})(TodoList)
+export default connect(mapStateToProps, {addNote, editorNote, addTask, delTask, delNote, isActive, setFilter, delTasks, editor})(TodoList)

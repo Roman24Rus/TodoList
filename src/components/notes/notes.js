@@ -9,7 +9,7 @@ import Note from "./note/note";
 
 const Notes = (props) => {
 
-    const item = props.notes.map((item) => <Note key={item.id} id={item.id} text={item.note} delNote={props.delNote}/>)
+    const item = props.notes.map((item) => <Note editorNote={props.editorNote} key={item.id} id={item.id} text={item.note} delNote={props.delNote}/>)
    
 
     return (

@@ -4,6 +4,7 @@
     min-height: 28px;
     margin-bottom: 5px;
     display: flex;
+    position: relative;
 }
 
 .itemLabel {
@@ -36,21 +37,49 @@
     opacity: 0;
 
 }
+
 .itemInput {
     display: none;
 }
 
-.itemInput:checked + .itemLabel::after {
+.touchB {
+    background-image: url(https://static.wixstatic.com/media/f07ffc_3f2498484fa74ec09742cbf1025c598a.png/v1/fill/w_94,h_90,al_c,usm_0.66_1.00_0.01,enc_auto/f07ffc_3f2498484fa74ec09742cbf1025c598a.png);
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    margin: auto 0;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+}
+
+.touch {
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    margin: auto 0;
+    opacity: 1;
+}
+
+.item:hover .touchB {
+    opacity: 1;
+}
+
+.itemInput:checked+.itemLabel::after {
     opacity: 1;
 }
 
 .task {
     position: relative;
     align-self: center;
-    width: 230px;
+    width: 210px;
     word-wrap: break-word;
     padding: 5px 0;
-    margin-left: 28px;
+    margin-left: 30px;
     margin-right: 5px;
     font-size: 20px;
 }
@@ -65,6 +94,7 @@
     border: none;
     font-size: 0;
 }
+
 .itemButton:focus {
     border: none;
 }
@@ -90,6 +120,7 @@
     transform: rotate(-45deg);
     background-color: rgba(0, 0, 0, 0.658);
 }
+
 .itemCompleted {
     background-color: rgba(74, 148, 197, 0.226);
     width: 100%;
@@ -98,14 +129,135 @@
     display: flex;
     text-decoration: line-through;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.editor {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+}
+
 .editing {
-    background-color: transparent;
-    position: relative;
-    margin-left: 27px;
-   
-    width: 232px;
-    height: 31px;
+    width: 228px;
+    height: 27px;
     outline: none;
-    border: none;
-    font-size: 16.5px;
+    border: 2px solid black;
+    border-right: 0;
+    background-color: rgba(255, 248, 220, 1);
+    font-size: 17px;
+
+}
+
+.buttonEditor {
+    position: absolute;
+    left: 266px;
+    width: 33px;
+    height: 33px;
+    margin-left: 1px;
+    background-color: rgba(255, 248, 220, 1);
+    font-size: 0;
+}
+
+.buttonEditor::before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 15px;
+    border: 2px solid black;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+    top: 4px;
+    left: 10px;
+}
+
+.buttonEditorout {
+    position: absolute;
+    left: 233px;
+    width: 33px;
+    height: 33px;
+    margin-left: 1px;
+    background-color: rgba(255, 248, 220, 1);
+    font-size: 0;
+}
+
+.buttonEditorout::before {
+    position: absolute;
+    top: 5px;
+    left: 13px;
+    content: "";
+    height: 17px;
+    border: 1px solid rgba(0, 0, 0, 0.658);
+    transform: rotate(45deg);
+    background-color: rgba(0, 0, 0, 0.651);
+}
+
+.buttonEditorout::after {
+    position: absolute;
+    top: 5px;
+    left: 13px;
+    content: "";
+    height: 17px;
+    border: 1px solid rgba(0, 0, 0, 0.644);
+    transform: rotate(-45deg);
+    background-color: rgba(0, 0, 0, 0.658);
+
+}
+
+@media (min-width: 500px) {
+    .task {
+        flex-grow: 1;
+    }
+
+    .editor {
+        top: 0px;
+        width: 100%;
+    }
+
+    .editing {
+        flex-grow: 1;
+
+    }
+
+    .buttonEditor {
+        position: relative;
+        left: 0;
+        margin-left: 0;
+    }
+
+    .buttonEditorout {
+        position: relative;
+        left: 0;
+        margin-left: 0;
+        border-right: 1px solid;
+    }
 }

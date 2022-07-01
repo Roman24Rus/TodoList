@@ -6,7 +6,18 @@ h1 {
 .notes {
     width: 310px;
     margin: 0 auto;
-    margin-top: 15px;
+    margin-top:px;
     padding: 0 5px;
     box-sizing: border-box;
+}
+@media (min-width: 500px) {
+    .notes {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+@media (min-width: 900px) {
+    .notes {
+        width: 49%;
+    }
 }

@@ -3,8 +3,25 @@
     height: 80px;
     border: 2px solid black;
     margin: 10px auto;
-    padding: 25px 0;
+    padding: 20px 0;
     box-sizing: border-box;
+}
+@media (min-width: 500px) {
+    .blockNewItems {
+        width: 100%;
+    }
+    .fillingLine {
+        flex-grow: 1;
+       
+    }
+    .button {
+        margin-right: 25px;
+    }
+    .g {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
 }
 
 .buttonNotes {
@@ -14,8 +31,8 @@
 .fillingLabel {
     cursor: pointer;
     position: relative;
-    padding-right: 27px;
-    margin-left: 0;
+    padding-right: 35px;
+    
 }
 
 .fillingLabel::before {
@@ -48,7 +65,8 @@
 
 .fillingLine {
     border: 2px solid black;
-    height: 22px;
+    height: 25px;
+    
 }
 .fillingLine:focus {
     outline:none;
@@ -60,4 +78,6 @@
     border: none;
     vertical-align: middle;
     outline: none;
+    position: relative;
+    left: 5px;
 }

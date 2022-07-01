@@ -4,11 +4,11 @@ const ADD_TASK = 'ADD_TASK'
 const DEL_TASK = 'DEL_TASK'
 const IS_ACTIVE = 'IS_ACTIVE'
 const DEL_TASKS ='DEL_TASKS'
+const EDITOR_TASK = 'EDITOR_TASK'
 
 const ADD_NOTE = 'ADD_NOTE'
 const DEL_NOTE = 'DEL_NOTE'
-
-
+const EDITOR_NOTE = 'EDITOR_NOTE'
 const FILTER = 'FILTER'
 
 
@@ -25,7 +25,14 @@ export const tasks = (state = [], action) => {
             return e
         })]   
     }else if(action.type === DEL_TASKS) {
-        return []
+        return [...state.filter((item) => item.isActive !== true)]
+    }else if(action.type === EDITOR_TASK) {
+        return [...state.map((e) => {
+            if(e.id === action.id) {
+              return  {...e, task: action.text}
+            }
+            return e
+        })]
     }
     return state
 }
@@ -34,6 +41,13 @@ export const notes = (state = [], action) => {
         return [...state, action.payload]
     }else if(action.type === DEL_NOTE) {
         return [...state.filter((e) =>  e.id !== action.id )]
+    }else if(action.type === EDITOR_NOTE) {
+        return [...state.map((e) => {
+            if(e.id === action.id) {
+              return  {...e, note: action.text}
+            }
+            return e
+        })]
     }
     return state
 }
@@ -64,6 +78,18 @@ const delNoteAC = (id) => {
         id
     }
 }
+const editorAC = (text, id) => {
+    return {
+        type: EDITOR_TASK,
+        id,
+        text
+    }
+}
+export const editor = (text, id) => {
+    return (dispatch) => {
+        dispatch(editorAC(text, id))
+    }
+}
 export const addNote = (text) => {
     return (dispatch) => {
         dispatch(addNoteAC(text))
@@ -76,7 +102,13 @@ export const delNote = (id) => {
 }
 
 
-
+const editorNoteAC = (text, id) => {
+    return {
+        type: EDITOR_NOTE,
+        id,
+        text
+    }
+}
 const addTaskAC = (text) => {
     return {
         type: ADD_TASK,
@@ -122,6 +154,11 @@ export const isActive = (id) => {
 export const delTasks = () => {
     return (dispatch) => {
         dispatch(delTasksAC())
+    }
+}
+export const editorNote = (text, id) => {
+    return (dispatch) => {
+        dispatch(editorNoteAC(text, id))
     }
 }
 

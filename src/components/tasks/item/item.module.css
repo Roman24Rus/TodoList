@@ -164,27 +164,29 @@
     position: absolute;
     z-index: 1;
     top: 0px;
+    min-height: 100%;
 }
 
 .editing {
     width: 228px;
-    height: 27px;
     outline: none;
     border: 2px solid black;
     border-right: 0;
     background-color: rgba(255, 248, 220, 1);
     font-size: 17px;
-
 }
 
 .buttonEditor {
+    display: flex;
     position: absolute;
     left: 266px;
     width: 33px;
-    height: 33px;
     margin-left: 1px;
     background-color: rgba(255, 248, 220, 1);
     font-size: 0;
+    min-height: 100%;
+    border: 2px solid black;
+    align-items:center;
 }
 
 .buttonEditor::before {
@@ -196,34 +198,35 @@
     border-top: none;
     border-left: none;
     transform: rotate(45deg);
-    top: 4px;
     left: 10px;
 }
 
 .buttonEditorout {
     position: absolute;
+    display: flex;
     left: 233px;
     width: 33px;
-    height: 33px;
+    min-height: 100%;
     margin-left: 1px;
     background-color: rgba(255, 248, 220, 1);
     font-size: 0;
+    align-items: center;
 }
 
 .buttonEditorout::before {
     position: absolute;
-    top: 5px;
     left: 13px;
     content: "";
     height: 17px;
     border: 1px solid rgba(0, 0, 0, 0.658);
     transform: rotate(45deg);
     background-color: rgba(0, 0, 0, 0.651);
+
+
 }
 
 .buttonEditorout::after {
     position: absolute;
-    top: 5px;
     left: 13px;
     content: "";
     height: 17px;

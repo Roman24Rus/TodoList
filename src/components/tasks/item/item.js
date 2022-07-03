@@ -30,8 +30,8 @@ const Item = (props) => {
         }
     }
     const editingOut = () => {
-         setEditing(!editing)
-         setText(props.text)
+        setEditing(!editing)
+        setText(props.text)
     }
 
 
@@ -40,15 +40,15 @@ const Item = (props) => {
             <form onSubmit={handlSubmit} className={props.isActiveId && props.id ? Style.itemCompleted : Style.item}>
                 <input className={Style.itemInput} checked={props.isActiveId && props.id} id="itemCheckbox" type='checkbox'></input>
                 <label onClick={active} htmlFor="itemCheckbox" className={Style.itemLabel}></label>
-                <div className={Style.task}>{text}</div>
+                <div className={Style.task}>{props.text}</div>
                 <div className={Style.touch}>
-                {!editing &&
-                    <button onClick={editingF} className={Style.touchB}></button>
-                }
+                    {!editing &&
+                        <button onClick={editingF} className={Style.touchB}></button>
+                    }
                 </div>
                 {editing &&
                     <div className={Style.editor}>
-                        <input onClick={() => setError(false)} className={Style.editing} autoFocus onChange={(e) => setText(e.target.value)} value={(error) ? errors : text} type='text'></input>
+                        <   textarea onClick={() => setError(false)} className={Style.editing} autoFocus onChange={(e) => setText(e.target.value)} value={(error) ? errors : text} type='text'></textarea>
                         <button onClick={editingOut} className={Style.buttonEditorout}>x</button>
                         <button onClick={editor} className={Style.buttonEditor}>ok</button>
                     </div>
